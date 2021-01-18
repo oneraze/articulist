@@ -1,0 +1,25 @@
+{
+  "name": "articulist",
+  "version": "1.0.0",
+  "description": "Ultimate Note Taking App",
+  "main": "app.js",
+  "scripts": {
+    "test": "node ./api/routes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oneraze/articulist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oneraze/articulist/issues"
+  },
+  "homepage": "https://github.com/oneraze/articulist#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
