@@ -5,7 +5,17 @@ const app = require("../app");
 // GET
 app.get("/", (req, res) => {
     res.render("index", {
-        brand: "Articulist"
+        brand: "Articulist",
+        folders: {
+            School: {
+                name: "School",
+                notes: ["Study"]
+            },
+            Home: {
+                name: "Home",
+                notes: ["Sleep", "Idk"]
+            }
+        }
     })
 })
 

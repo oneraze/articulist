@@ -1,33 +1,26 @@
 <section class="container-fluid p-2">
-    <!-- CONTAINER -->
-    <section class="row">
-        <!-- ROW -->
-        <div class="col-md-3" id="folders">
-            <!-- ALL FOLDERS -->
-
-            <!-- Example Accordion 1 -->
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        School
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+    <section class="row w-100">
+        <div class="col-md-2" id="folders">
+            <ul class="list-group">
+                <% for (let i in folders) { %>
+                    <li class="list-group-item"><b><%= folders[i].name %></b>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">School</li>
-                            <li class="list-group-item">Homework</li>
+                            <% for (let ii in folders[i].notes) { %>
+                                <li class="list-group-item"><%= folders[i].notes[ii] %></li>
+                            <% } %>
+                            <li class="list-group-item"><button class="btn btn-sm btn-primary">Add note</button></li>
                         </ul>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-            
+                    </li>
+                <% } %>
+                <li class="list-group-item">
+                    <button class="btn btn-sm btn-primary">Add folder</button>
+                </li>
+            </ul>
         </div>
-        <div class="col-md-9">
-            Hi
+        <div class="col-md-10">
+            <%- include('./textarea.ejs') -%>
         </div>
     </section>
 </section>
+
+<!-- <li class="list-group-item"></li> -->
