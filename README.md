@@ -1,2 +1,2 @@
 # articulist
-Ultimate Note Taking App
+Minimalist Note Taking App
