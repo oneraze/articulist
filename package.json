@@ -2,9 +2,10 @@
   "name": "articulist",
   "version": "1.0.0",
   "description": "Ultimate Note Taking App",
-  "main": "app.js",
+  "main": "./api/routes.js",
   "scripts": {
-    "test": "node ./api/routes"
+    "test": "node ./api/routes",
+    "start": "nodemon ./api/routes"
   },
   "repository": {
     "type": "git",

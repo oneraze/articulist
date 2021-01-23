@@ -1,0 +1,40 @@
+[
+    {
+        "type": "folder",
+        "title": "School",
+        "content": [
+            {
+                "type": "note",
+                "title": "Homework",
+                "content": "I dont have any homework blo",
+                "tags": ["homework", "school", "not-boring-at-all"]
+            },
+            {
+                "type": "folder",
+                "title": "Classes",
+                "content": []
+            }
+        ]
+    },
+    {
+        "type": "folder",
+        "title": "Home",
+        "content": [
+            {
+                "type": "note",
+                "title": "Recipes",
+                "content": "1. Pasta 2. idk",
+                "tags": ["home", "food", "recipes"]
+            },
+            {
+                "type": "folder",
+                "title": "School"
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "title": "Random Note",
+        "content": "This is a random note"
+    }
+]

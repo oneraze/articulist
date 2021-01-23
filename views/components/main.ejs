@@ -1,26 +1,38 @@
-<section class="container-fluid p-2">
-    <section class="row w-100">
-        <div class="col-md-2" id="folders">
-            <ul class="list-group">
-                <% for (let i in folders) { %>
-                    <li class="list-group-item"><b><%= folders[i].name %></b>
-                        <ul class="list-group list-group-flush">
-                            <% for (let ii in folders[i].notes) { %>
-                                <li class="list-group-item"><%= folders[i].notes[ii] %></li>
-                            <% } %>
-                            <li class="list-group-item"><button class="btn btn-sm btn-primary">Add note</button></li>
-                        </ul>
-                    </li>
+<div class="accordion accordion-flush" id="filesystem">
+    <% let listEverything = files => { %>
+        <div class="accordion-item m-0">
+            <% if (JSON.stringify(files) == "[]") { %>
+                <% console.log("There is nothing in here.") %>
+            <% } else { %>
+                <% for (let i in files) { %>
+                    <% if (files[i].type == "folder") { %>
+                        <% let id = uuid() %> 
+                        <h2 class="accordion-header" id="flush-heading-<%= id %>">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-<%= id %>" aria-expanded="false" aria-controls="flush-collapse-<%= id %>">
+                                <%= files[i].title %>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse-<%= id %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<%= id %>" data-bs-parent="#filesystem">
+                            <div class="accordion-body"><% listEverything(files[i].files) %></div>
+                        </div>
+                    <% } else if (files[i].type == "note") { %>
+                        <button class="btn p-2 py-2 w-100 border border-top-1 mt-2 text-left" onclick="openNote('<%=files[i].content%>')"><%= files[i].title %></button>
+                    <% } else { %>
+                        <% console.log("SOMETHING WENT WRONg."); %>
+                    <% } %>
                 <% } %>
-                <li class="list-group-item">
-                    <button class="btn btn-sm btn-primary">Add folder</button>
-                </li>
-            </ul>
+            <% } %>
         </div>
-        <div class="col-md-10">
+    <% } %>
+</div>
+
+<section class="container-fluid">
+    <section class="row">
+        <div class="col-md-3 border-0 p-2" id="folders">
+            <% listEverything(filesystem) %>
+        </div>
+        <div class="col-md-9 p-2">
             <%- include('./textarea.ejs') -%>
         </div>
     </section>
 </section>
-
-<!-- <li class="list-group-item"></li> -->
